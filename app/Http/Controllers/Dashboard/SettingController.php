@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\SettingStoreRequest;
 use App\Models\Setting;
-use Illuminate\Http\Request;
 
 class SettingController extends Controller
 {
@@ -16,7 +16,7 @@ class SettingController extends Controller
         ]);
     }
 
-    public function update(Request $request)
+    public function update(SettingStoreRequest $request)
     {
         $setting = Setting::first();
         $setting->mobile = $request->mobile;

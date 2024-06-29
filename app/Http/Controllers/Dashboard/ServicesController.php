@@ -3,8 +3,9 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ServicesStoreRequest;
+use App\Http\Requests\ServicesUpdateRequest;
 use App\Models\Service;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class ServicesController extends Controller
@@ -25,16 +26,8 @@ class ServicesController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ServicesStoreRequest $request)
     {
-//        request()->validate([
-//            'en_name' => 'required',
-//            'ar_name' => 'required',
-//        ], [
-//            'en_name.required' => 'The en category name is required.',
-//            'ar_name.required' => 'The ar category name is required.',
-//        ]);
-
         try {
             $service = new Service();
             if ($request->hasFile('image')) {
@@ -76,16 +69,8 @@ class ServicesController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ServicesUpdateRequest $request, $id)
     {
-//        request()->validate([
-//            'en_name' => 'required',
-//            'ar_name' => 'required',
-//        ], [
-//            'en_name.required' => 'The en category name is required.',
-//            'ar_name.required' => 'The ar category name is required.',
-//        ]);
-
         try {
             $service = Service::find($id);
             if ($request->hasFile('image')) {

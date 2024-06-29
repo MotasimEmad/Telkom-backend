@@ -4,7 +4,9 @@
 <div x-cloak :class="sidebarOpen ? 'translate-x-0 ease-in' : '-translate-x-full ease-out'"
      class="fixed inset-y-0 left-0 z-30 flex-col w-64 h-auto px-5 py-8 overflow-y-auto transition duration-200 transform bg-gray-900 border-r border-gray-100 lg:translate-x-0 lg:relative lg:inset-0">
 
-    <img class="w-full h-12" src="/logo/logo.png" alt="logo" />
+    <div class="bg-white rounded-md p-2">
+        <img class="h-10" src="/logo/logo.png" alt="logo" />
+    </div>
 
     <hr class="my-6 border-gray-500">
 
