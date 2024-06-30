@@ -27,4 +27,7 @@ Route::group(['prefix' => 'v1','namespace' => 'App\Http\Controllers\Api'], funct
 
     // Settings Routes
     Route::get("settings", [App\Http\Controllers\Api\SettingController::class, 'settings']);
+
+    // Contact Routes
+    Route::post("send_message", [App\Http\Controllers\Api\MessageController::class, 'send_message']);
 });

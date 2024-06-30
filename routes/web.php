@@ -27,6 +27,9 @@ Route::middleware('auth')->group(function () {
 
     // Setting Routes
     Route::resource('settings', App\Http\Controllers\Dashboard\SettingController::class);
+
+    // Messages Routes
+    Route::resource('messages', App\Http\Controllers\Dashboard\MessagesController::class);
 });
 
 require __DIR__ . '/auth.php';
