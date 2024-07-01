@@ -16,7 +16,6 @@ class ServicesController extends Controller
             $all_services = ServicesCollection::collection(Service::orderBy('created_at', 'desc')->limit(4)->get());
             return response()->json([
                 'data' => $all_services->values(),
-                'pagination' => collect($all_services)->except('data', 'links')
             ]);
 
         } catch (\Throwable $exception) {
@@ -30,7 +29,6 @@ class ServicesController extends Controller
             $all_services = ServicesCollection::collection(Service::orderBy('created_at', 'desc')->get());
             return response()->json([
                 'data' => $all_services->values(),
-                'pagination' => collect($all_services)->except('data', 'links')
             ]);
 
         } catch (\Throwable $exception) {
