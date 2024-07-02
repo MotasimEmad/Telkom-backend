@@ -25,7 +25,7 @@
     <section style="max-width: 42rem; background-color: #fff;">
         <header style="padding-top: 1rem; padding-bottom: 1rem; display: flex; justify-content: center; width: 100%;">
             <a href="#">
-                <img src="https://www.tailwindtap.com/_next/static/media/nav-logo.371aaafb.svg" alt="tailwindtaplogo"/>
+                <img src="https://dashboard.telkom.ae/public/logo/logo.png" alt="tailwindtaplogo"/>
             </a>
         </header>
         <div style="width : 100%; height : 2px; background-color : #365CCE;"></div>
