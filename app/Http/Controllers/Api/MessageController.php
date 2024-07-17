@@ -20,10 +20,11 @@ class MessageController extends Controller
             $message->email = $request->email;
             $message->phone_number = $request->phone_number;
             $message->message = $request->message;
+            $message->company_name = $request->company_name;
             $message->save();
 
            try {
-               Mail::to('motasimmax@gmail.com')->send(new ContactUS($request->full_name, $request->email, $request->phone_number, $request->message));
+               Mail::to(env('MAIL_FROM_ADDRESS'))->send(new ContactUS($request->full_name, $request->email, $request->phone_number, $request->message, $request->company_name));
                Mail::to($request->email)->send(new AutoReply($request->full_name));
            } catch (\Throwable $exception) {
                Log::info($exception->getMessage());

@@ -16,6 +16,7 @@ class MessageStoreRequest extends FormRequest
     {
         return [
             'full_name' => 'required',
+            'company_name' => 'required',
             'email' => 'required|email',
             'phone_number' => 'required',
             'message' => 'required',
@@ -31,6 +32,7 @@ class MessageStoreRequest extends FormRequest
     {
         return [
             'full_name.required' => 'Full name is required.',
+            'company_name.required' => 'Company name is required.',
             'email.required' => 'Email is required.',
             'phone_number.required' => 'Mobile is required.',
             'message.required' => 'Message is required.',

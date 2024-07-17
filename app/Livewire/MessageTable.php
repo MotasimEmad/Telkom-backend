@@ -39,6 +39,10 @@ final class MessageTable extends PowerGridComponent
                 return Str::limit($model->full_name, 20, '...');
             })
 
+            ->add('company_name', function ($model) {
+                return Str::limit($model->company_name, 20, '...');
+            })
+
             ->add('email', function ($model) {
                 return Str::limit($model->email, 20, '...');
             })
@@ -58,6 +62,10 @@ final class MessageTable extends PowerGridComponent
     {
         return [
             Column::make('Full name', 'full_name')
+                ->searchable()
+                ->sortable(),
+
+            Column::make('Company name', 'company_name')
                 ->searchable()
                 ->sortable(),
 

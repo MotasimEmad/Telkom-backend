@@ -18,6 +18,10 @@
                 <span class="text-gray-900">{{ $full_name }}</span>
             </div>
             <div class="flex justify-between items-center mb-2">
+                <span class="text-gray-600 font-semibold">Company Name:</span>
+                <span class="text-gray-900">{{ $company_name }}</span>
+            </div>
+            <div class="flex justify-between items-center mb-2">
                 <span class="text-gray-600 font-semibold">Email:</span>
                 <span class="text-gray-900">{{ $email }}</span>
             </div>
