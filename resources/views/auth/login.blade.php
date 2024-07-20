@@ -6,7 +6,7 @@
         @csrf
 
         <!-- Email Address -->
-        <div>
+        {{-- <div>
             <x-input-label for="email" :value="__('E-mail')"></x-input-label>
             <x-text-input id="email" class="block mt-1 w-full py-2 bg-gray-50 border border-gray-100" type="email" name="email" :value="old('email')" required autofocus autocomplete="username"></x-text-input>
             <x-input-error :messages="$errors->get('email')" class="mt-2"></x-input-error>
@@ -22,7 +22,7 @@
                           required autocomplete="current-password"></x-text-input>
 
             <x-input-error :messages="$errors->get('password')" class="mt-2"></x-input-error>
-        </div>
+        </div> --}}
 
         <!-- Remember Me -->
         <div class="flex items-center justify-end mt-4">

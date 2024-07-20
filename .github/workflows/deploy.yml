@@ -1,4 +1,4 @@
-name: Run Migrations
+name: Deploy Laravel Application
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  migrate:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -23,9 +23,13 @@ jobs:
         mkdir -p ~/.ssh
         ssh-keyscan -H 192.250.239.80 >> ~/.ssh/known_hosts
 
-    - name: Run migrations on cPanel server
+    - name: Sync files to server
       run: |
-        ssh telkomae@192.250.239.80 "cd /home/telkomae/public_html/dev-dashboard && php artisan migrate --force"
+        rsync -avz --delete ./ telkomae@192.250.239.80:/home/telkomae/public_html/dashboard/
+      
+    - name: Run migrations on server
+      run: |
+        ssh telkomae@192.250.239.80 "cd /home/telkomae/public_html/dashboard && php artisan migrate --force"
       env:
         DB_CONNECTION: mysql
         DB_HOST: 127.0.0.1
