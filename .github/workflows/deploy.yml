@@ -1,4 +1,4 @@
-name: Deploy Laravel Application
+name: Run Migrations
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  deploy:
+  migrate:
     runs-on: ubuntu-latest
 
     steps:
@@ -23,15 +23,7 @@ jobs:
         mkdir -p ~/.ssh
         ssh-keyscan -H 192.250.239.80 >> ~/.ssh/known_hosts
 
-    - name: Sync files to server
-      run: |
-        rsync -avz --delete ./ telkomae@192.250.239.80:/home/telkomae/public_html/dashboard/
-
-    - name: Copy env-production to .env on server
-      run: |
-        ssh telkomae@192.250.239.80 "cd /home/telkomae/public_html/dashboard && cp env-production .env"
-
-    - name: Run migrations on server
+    - name: Run migrations on cPanel server
       run: |
         ssh telkomae@192.250.239.80 "cd /home/telkomae/public_html/dashboard && php artisan migrate --force"
       env:
