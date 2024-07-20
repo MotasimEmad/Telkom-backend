@@ -18,6 +18,11 @@ jobs:
       with:
         ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
+    - name: Add server to known_hosts
+      run: |
+        mkdir -p ~/.ssh
+        ssh-keyscan -H 192.250.239.80 >> ~/.ssh/known_hosts
+
     - name: Run migrations on cPanel server
       run: |
         ssh telkomae@192.250.239.80 "cd /home/telkomae/public_html/dev-dashboard && php artisan migrate --force"
